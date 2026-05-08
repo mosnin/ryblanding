@@ -1,11 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import {
   Check,
-  ChevronDown,
   Dumbbell,
   UtensilsCrossed,
   TrendingUp,
@@ -17,6 +16,7 @@ import {
   Quote,
 } from "lucide-react";
 import { ShimmerButton } from "@/components/ui/ShimmerButton";
+import { FAQAccordion } from "@/components/ui/FAQAccordion";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -219,62 +219,6 @@ function PlanCard({
   );
 }
 
-function FAQItem({
-  question,
-  answer,
-  index,
-  open,
-  onToggle,
-}: {
-  question: string;
-  answer: string;
-  index: number;
-  open: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <div className="rounded-2xl overflow-hidden border border-gray-100 bg-white hover:shadow-md transition-shadow duration-200">
-      <button
-        onClick={onToggle}
-        aria-expanded={open}
-        aria-controls={`faq-sub-${index}`}
-        className="w-full flex items-center justify-between p-6 text-left gap-4"
-      >
-        <span className="font-semibold text-[#123244]">{question}</span>
-        <motion.div
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
-          style={{
-            background: open
-              ? "linear-gradient(135deg,#22B8F0,#FF0A7A)"
-              : "rgba(34,184,240,0.1)",
-          }}
-        >
-          <ChevronDown size={16} className={open ? "text-white" : "text-[#22B8F0]"} />
-        </motion.div>
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            id={`faq-sub-${index}`}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <div className="px-6 pb-6">
-              <div className="h-px bg-gray-100 mb-4" />
-              <p className="text-gray-500 leading-relaxed text-sm">{answer}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
 // ─── Main Component ────────────────────────────────────────────────────────────
 
 export function GetStartedPage() {
@@ -289,8 +233,6 @@ export function GetStartedPage() {
   const stepsInView = useInView(stepsRef, { once: true, margin: "-80px" });
   const testimonialsInView = useInView(testimonialsRef, { once: true, margin: "-80px" });
   const faqInView = useInView(faqRef, { once: true, margin: "-80px" });
-
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const planFeatures = [
     "Custom glute focused workouts",
@@ -820,18 +762,8 @@ export function GetStartedPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={faqInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="space-y-3"
           >
-            {faqs.map((faq, i) => (
-              <FAQItem
-                key={i}
-                question={faq.question}
-                answer={faq.answer}
-                index={i}
-                open={openFaq === i}
-                onToggle={() => setOpenFaq(openFaq === i ? null : i)}
-              />
-            ))}
+            <FAQAccordion items={faqs} />
           </motion.div>
         </div>
       </section>

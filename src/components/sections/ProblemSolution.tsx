@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Target, Clock, Heart } from "lucide-react";
+import { StaggerContainer, StaggerItem } from "@/components/ui/SectionReveal";
 
 const cards = [
   {
@@ -12,6 +13,7 @@ const cards = [
       "Targeted workouts designed to build shape, strength, and confidence. Every session is intentional, every rep has a purpose.",
     color: "#22B8F0",
     gradient: "from-[#22B8F0]/10 to-[#22B8F0]/5",
+    accent: "rgba(34,184,240,0.6)",
   },
   {
     icon: Clock,
@@ -20,6 +22,7 @@ const cards = [
       "Efficient sessions that fit into your life without wasting hours in the gym. 20–40 minutes is all you need to see real results.",
     color: "#FF0A7A",
     gradient: "from-[#FF0A7A]/10 to-[#FF0A7A]/5",
+    accent: "rgba(255,10,122,0.6)",
   },
   {
     icon: Heart,
@@ -28,6 +31,7 @@ const cards = [
       "Supportive training that meets you where your body is today. Safe, effective, and designed to help you come back stronger.",
     color: "#22B8F0",
     gradient: "from-[#22B8F0]/10 to-[#FF0A7A]/5",
+    accent: "rgba(34,184,240,0.6)",
   },
 ];
 
@@ -45,15 +49,22 @@ export function ProblemSolution() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
+          {/* Pill badge with dot indicator */}
+          <span
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{
               background: "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
               color: "#FF0A7A",
-              border: "1px solid rgba(255,10,122,0.2)"
+              border: "1px solid rgba(255,10,122,0.2)",
             }}
           >
+            <span
+              className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+              style={{ background: "#FF0A7A" }}
+            />
             Why RYB Works
           </span>
+
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#123244] leading-tight">
             Built for real women{" "}
             <span
@@ -69,45 +80,67 @@ export function ProblemSolution() {
           </h2>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {cards.map((card, i) => {
+        {/* Cards with stagger */}
+        <StaggerContainer
+          className="grid md:grid-cols-3 gap-8"
+          stagger={0.12}
+          delay={0}
+          direction="up"
+        >
+          {cards.map((card) => {
             const Icon = card.icon;
             return (
-              <motion.div
-                key={card.title}
-                initial={{ opacity: 0, y: 40 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="group relative rounded-3xl p-8 border border-gray-100 bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                {/* Gradient bg on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl`} />
-
-                <div className="relative z-10">
+              <StaggerItem key={card.title}>
+                <motion.div
+                  whileHover={{
+                    y: -8,
+                    boxShadow: "0 24px 48px rgba(18,50,68,0.1)",
+                    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+                  }}
+                  className="group relative rounded-3xl p-8 border border-gray-100/80 bg-white shadow-md transition-colors duration-300 overflow-hidden h-full"
+                >
+                  {/* Top accent stripe — fades in on hover */}
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
-                    style={{ background: `${card.color}15` }}
-                  >
-                    <Icon size={24} style={{ color: card.color }} />
-                  </div>
+                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: `linear-gradient(90deg, ${card.color}, ${card.color}80)`,
+                    }}
+                  />
 
-                  <h3 className="text-xl font-bold text-[#123244] mb-3">{card.title}</h3>
-                  <p className="text-gray-500 leading-relaxed">{card.description}</p>
+                  {/* Gradient bg on hover */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl`}
+                  />
 
-                  <div className="mt-6 flex items-center gap-2">
-                    <div className="h-px flex-1 bg-gray-100" />
+                  <div className="relative z-10">
+                    {/* Icon container — larger, ring on hover */}
                     <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ background: card.color }}
-                    />
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:ring-1 group-hover:ring-offset-2"
+                      style={{
+                        background: `${card.color}18`,
+                        // ring color via CSS custom property trick
+                        ["--tw-ring-color" as string]: card.accent,
+                      }}
+                    >
+                      <Icon size={26} style={{ color: card.color }} />
+                    </div>
+
+                    <h3 className="text-xl font-bold text-[#123244] mb-3">{card.title}</h3>
+                    <p className="text-gray-500/90 text-[15px] leading-[1.65]">{card.description}</p>
+
+                    <div className="mt-6 flex items-center gap-2">
+                      <div className="h-px flex-1 bg-gray-100" />
+                      <div
+                        className="w-2 h-2 rounded-full"
+                        style={{ background: card.color }}
+                      />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

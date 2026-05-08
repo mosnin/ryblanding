@@ -9,6 +9,20 @@
   --gray: #F5F7FA;
   --background: #FFFFFF;
   --foreground: #123244;
+
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+
+  --shadow-sm: 0 1px 3px rgba(18,50,68,0.06), 0 1px 2px rgba(18,50,68,0.04);
+  --shadow-md: 0 4px 16px rgba(18,50,68,0.08), 0 2px 6px rgba(18,50,68,0.05);
+  --shadow-lg: 0 16px 40px rgba(18,50,68,0.1), 0 6px 16px rgba(18,50,68,0.06);
+  --shadow-glow-cyan: 0 8px 32px rgba(34,184,240,0.25);
+  --shadow-glow-pink: 0 8px 32px rgba(255,10,122,0.25);
+
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 @theme inline {
@@ -23,74 +37,132 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* ── Base ─────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
+
+::selection {
+  background: rgba(34, 184, 240, 0.2);
+  color: #123244;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Keyframes ────────────────────────────────────────────────────────── */
 
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  50%       { background-position: 100% 50%; }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(10px); }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
 }
 
-@keyframes pulse-ring {
-  0% { transform: scale(0.9); opacity: 1; }
-  100% { transform: scale(1.3); opacity: 0; }
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes border-beam {
-  0% { offset-distance: 0%; }
-  100% { offset-distance: 100%; }
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ── Animation utilities ──────────────────────────────────────────────── */
 
 .animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradient-x 6s ease infinite;
+  background-size: 300% 300%;
+  animation: gradient-x 10s var(--ease-in-out-quart) infinite;
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
+.animate-float        { animation: float         4s ease-in-out infinite; }
+.animate-float-reverse{ animation: float-reverse 4.5s ease-in-out 0.3s infinite; }
+.animate-float-slow   { animation: float         6s ease-in-out 0.8s infinite; }
+.animate-float-delayed{ animation: float         4s ease-in-out 1.2s infinite; }
+.animate-shimmer      { background-size: 200% auto; animation: shimmer 2.8s linear infinite; }
+.animate-marquee      { animation: marquee 28s linear infinite; }
+.animate-marquee-rev  { animation: marquee-reverse 32s linear infinite; }
+.animate-pulse-dot    { animation: pulse-dot 2s ease-in-out infinite; }
 
-.animate-float-delayed {
-  animation: float 4s ease-in-out 1s infinite;
-}
-
-.animate-float-slow {
-  animation: float 6s ease-in-out 0.5s infinite;
-}
-
-.animate-shimmer {
-  background-size: 200% auto;
-  animation: shimmer 2.5s linear infinite;
-}
+/* ── Glassmorphism ────────────────────────────────────────────────────── */
 
 .glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(1.6);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .glass-navy {
-  background: rgba(18, 50, 68, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(34, 184, 240, 0.2);
+  background: rgba(18, 50, 68, 0.75);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(34, 184, 240, 0.18);
 }
+
+/* ── Gradient utilities ───────────────────────────────────────────────── */
 
 .gradient-text {
   background: linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%);
@@ -108,24 +180,47 @@ body {
 }
 
 .shimmer-btn {
-  background: linear-gradient(90deg, #22B8F0, #FF0A7A, #22B8F0);
+  background: linear-gradient(90deg, #22B8F0 0%, #FF0A7A 50%, #22B8F0 100%);
   background-size: 200% auto;
-  animation: shimmer 3s linear infinite;
+  animation: shimmer 3.5s linear infinite;
+  will-change: background-position;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Marquee ──────────────────────────────────────────────────────────── */
+
+.marquee-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  will-change: transform;
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+.marquee-track:hover { animation-play-state: paused; }
 
-html {
-  scroll-behavior: smooth;
-}
+/* ── Reduced motion ───────────────────────────────────────────────────── */
 
-* {
-  box-sizing: border-box;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-gradient-x,
+  .animate-float,
+  .animate-float-reverse,
+  .animate-float-slow,
+  .animate-float-delayed,
+  .animate-shimmer,
+  .animate-marquee,
+  .animate-marquee-rev,
+  .shimmer-btn {
+    animation: none !important;
+  }
 }

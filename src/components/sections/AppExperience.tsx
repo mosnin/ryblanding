@@ -2,11 +2,45 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Smartphone } from "lucide-react";
+import { StaggerContainer, StaggerItem } from "@/components/ui/SectionReveal";
 
 const screens = [
-  { label: "Workouts", delay: 0, rotate: -6, y: 0 },
-  { label: "Nutrition", delay: 0.15, rotate: 0, y: -20 },
-  { label: "Progress", delay: 0.3, rotate: 6, y: 0 },
+  {
+    label: "Workouts",
+    delay: 0,
+    rotate: -6,
+    y: 0,
+    accentColor: "#22B8F0",
+    rows: ["Today's Workout", "Glute Focus · 45 min", "Upper Body · 30 min"],
+    progress: 68,
+  },
+  {
+    label: "Nutrition",
+    delay: 0.15,
+    rotate: 0,
+    y: -20,
+    accentColor: "#FF0A7A",
+    rows: ["Daily Macros", "Protein 142g / 150g", "Calories 1820 / 2000"],
+    progress: 91,
+    center: true,
+  },
+  {
+    label: "Progress",
+    delay: 0.3,
+    rotate: 6,
+    y: 0,
+    accentColor: "#22B8F0",
+    rows: ["Week 8 Check-in", "Weight −4.2 lbs", "Strength +12%"],
+    progress: 52,
+  },
+];
+
+const bullets = [
+  "Daily workout delivery to your device",
+  "Macro and calorie tracking built in",
+  "Check-ins and progress milestones",
+  "Direct messaging with your coach",
 ];
 
 export function AppExperience() {
@@ -21,18 +55,21 @@ export function AppExperience() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
+            {/* Badge with phone icon */}
             <span
-              className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
               style={{
                 background: "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
                 color: "#FF0A7A",
                 border: "1px solid rgba(255,10,122,0.2)"
               }}
             >
+              <Smartphone size={14} />
               The App Experience
             </span>
+
             <h2 className="text-4xl sm:text-5xl font-black text-[#123244] leading-tight mb-6">
               Everything in one{" "}
               <span
@@ -52,37 +89,36 @@ export function AppExperience() {
               Access it anywhere, anytime.
             </p>
 
-            <ul className="space-y-4">
-              {[
-                "Daily workout delivery to your device",
-                "Macro and calorie tracking built in",
-                "Check-ins and progress milestones",
-                "Direct messaging with your coach",
-              ].map((item, i) => (
-                <motion.li
-                  key={item}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold"
-                    style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
-                  >
-                    ✓
+            <StaggerContainer
+              className="space-y-4"
+              stagger={0.1}
+              delay={0.3}
+              direction="left"
+            >
+              {bullets.map((item) => (
+                <StaggerItem key={item}>
+                  <div className="flex items-center gap-3">
+                    <motion.div
+                      className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold"
+                      style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={inView ? { scale: 1, opacity: 1 } : {}}
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      ✓
+                    </motion.div>
+                    <span className="text-gray-600">{item}</span>
                   </div>
-                  <span className="text-gray-600">{item}</span>
-                </motion.li>
+                </StaggerItem>
               ))}
-            </ul>
+            </StaggerContainer>
           </motion.div>
 
           {/* Phone Mockups */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="relative flex items-end justify-center gap-4 h-[500px]"
           >
             {screens.map((screen) => (
@@ -90,39 +126,92 @@ export function AppExperience() {
                 key={screen.label}
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: screen.y } : {}}
-                transition={{ duration: 0.7, delay: screen.delay + 0.3 }}
+                transition={{ duration: 0.7, delay: screen.delay + 0.3, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: screen.y - 8, transition: { duration: 0.2 } }}
                 className="relative"
-                style={{ transform: `rotate(${screen.rotate}deg) translateY(${screen.y}px)` }}
+                style={{ rotate: `${screen.rotate}deg` }}
               >
+                {/* Center phone glow */}
+                {screen.center && (
+                  <div
+                    className="absolute inset-0 -z-10 blur-2xl rounded-full scale-110"
+                    style={{
+                      background: "radial-gradient(circle, rgba(34,184,240,0.35) 0%, transparent 70%)",
+                    }}
+                  />
+                )}
+
                 {/* Phone shell */}
                 <div
-                  className="relative w-36 h-72 sm:w-44 sm:h-80 rounded-[2.5rem] shadow-2xl overflow-hidden"
+                  className={`relative rounded-[2.5rem] shadow-2xl overflow-hidden ${
+                    screen.center
+                      ? "w-44 sm:w-52 h-80 sm:h-96"
+                      : "w-36 h-72 sm:w-44 sm:h-80"
+                  }`}
                   style={{
-                    background: "linear-gradient(160deg, rgba(34,184,240,0.15) 0%, rgba(255,10,122,0.1) 100%)",
-                    border: "2px solid rgba(34,184,240,0.3)",
+                    background: "linear-gradient(160deg, rgba(18,50,68,0.92) 0%, rgba(18,50,68,0.98) 100%)",
+                    border: `2px solid ${screen.accentColor}40`,
                   }}
                 >
-                  {/* Status bar */}
-                  <div className="absolute top-0 left-0 right-0 h-10 bg-[#123244]/60 flex items-center justify-center">
-                    <div className="w-16 h-1.5 rounded-full bg-white/30" />
+                  {/* Header bar */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-10 flex items-center justify-between px-4"
+                    style={{ background: `${screen.accentColor}18` }}
+                  >
+                    <div className="w-10 h-1.5 rounded-full bg-white/20" />
+                    <div className="w-3 h-3 rounded-full" style={{ background: screen.accentColor, opacity: 0.7 }} />
                   </div>
-                  {/* Content placeholder */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center pt-10 px-4 gap-2">
-                    <div className="h-2 rounded-full bg-white/20 w-full" />
-                    <div className="h-2 rounded-full bg-white/15 w-3/4" />
-                    <div className="h-16 rounded-xl bg-white/10 w-full mt-2" />
-                    <div className="h-10 rounded-xl bg-white/10 w-full" />
-                    <div className="h-10 rounded-xl bg-white/10 w-full" />
-                    <p className="text-white/30 text-xs text-center mt-2">
-                      App screens placeholder
-                    </p>
+
+                  {/* Content rows */}
+                  <div className="absolute inset-0 flex flex-col pt-14 px-4 gap-2.5">
+                    {/* Title row */}
+                    <div className="h-2.5 rounded-full w-4/5" style={{ background: "rgba(255,255,255,0.5)" }} />
+
+                    {/* Data rows */}
+                    {screen.rows.slice(1).map((row, ri) => (
+                      <div key={ri} className="flex items-center gap-2">
+                        <div
+                          className="w-2 h-2 rounded-full flex-shrink-0"
+                          style={{ background: screen.accentColor, opacity: 0.8 }}
+                        />
+                        <div
+                          className="h-2 rounded-full flex-1"
+                          style={{ background: "rgba(255,255,255,0.2)", maxWidth: ri === 0 ? "80%" : "65%" }}
+                        />
+                      </div>
+                    ))}
+
+                    {/* Card block */}
+                    <div
+                      className="rounded-xl mt-2 flex-1 max-h-20 p-3"
+                      style={{ background: `${screen.accentColor}18` }}
+                    >
+                      <div className="h-2 rounded-full w-3/5 mb-2" style={{ background: "rgba(255,255,255,0.3)" }} />
+                      <div className="h-2 rounded-full w-4/5" style={{ background: "rgba(255,255,255,0.15)" }} />
+                    </div>
+
+                    {/* Progress bar */}
+                    <div className="mt-auto mb-4">
+                      <div className="flex justify-between mb-1">
+                        <div className="h-1.5 rounded-full w-16" style={{ background: "rgba(255,255,255,0.2)" }} />
+                        <div className="h-1.5 rounded-full w-8" style={{ background: `${screen.accentColor}60` }} />
+                      </div>
+                      <div className="w-full h-1.5 rounded-full bg-white/10">
+                        <div
+                          className="h-full rounded-full"
+                          style={{
+                            width: `${screen.progress}%`,
+                            background: `linear-gradient(90deg, ${screen.accentColor}, #FF0A7A)`,
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Label */}
+                {/* Label pill with gradient */}
                 <div
-                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-white text-xs font-bold shadow-md whitespace-nowrap"
+                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-white text-xs font-bold shadow-md whitespace-nowrap"
                   style={{ background: "linear-gradient(90deg, #22B8F0, #FF0A7A)" }}
                 >
                   {screen.label}
@@ -132,7 +221,8 @@ export function AppExperience() {
 
             {/* Background glow */}
             <div className="absolute inset-0 -z-10">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[#22B8F0]/10 blur-3xl" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-[#22B8F0]/12 blur-3xl" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-[#FF0A7A]/8 blur-2xl" />
             </div>
           </motion.div>
         </div>

@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
-import { ArrowRight } from "lucide-react";
+import { SectionReveal } from "@/components/ui/SectionReveal";
+import { ArrowRight, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -37,30 +38,33 @@ const faqs = [
 export function FAQPreview() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const reduce = useReducedMotion();
 
   return (
     <section
       ref={ref}
-      className="py-24 px-4 sm:px-6 lg:px-8"
-      style={{ background: "linear-gradient(135deg, #EAF8FF 0%, #fff0f7 100%)" }}
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-b border-gray-100"
     >
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={reduce ? {} : { opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
+          {/* FAQ badge */}
           <span
-            className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{
               background: "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
               color: "#22B8F0",
-              border: "1px solid rgba(34,184,240,0.3)"
+              border: "1px solid rgba(34,184,240,0.3)",
             }}
           >
-            Got Questions?
+            <HelpCircle size={13} />
+            FAQ
           </span>
+
           <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
             Frequently Asked{" "}
             <span
@@ -76,25 +80,25 @@ export function FAQPreview() {
           </h2>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <SectionReveal delay={0.2}>
           <FAQAccordion items={faqs} />
-        </motion.div>
+        </SectionReveal>
 
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={reduce ? {} : { opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.5 }}
           className="text-center mt-10"
         >
           <Link
             href="/faqs"
-            className="inline-flex items-center gap-2 text-[#22B8F0] font-semibold hover:gap-3 transition-all duration-200"
+            className="group inline-flex items-center gap-2 text-[#22B8F0] font-semibold transition-colors duration-200 hover:text-[#FF0A7A]"
           >
-            View all FAQs <ArrowRight size={16} />
+            View all FAQs{" "}
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            />
           </Link>
         </motion.div>
       </div>

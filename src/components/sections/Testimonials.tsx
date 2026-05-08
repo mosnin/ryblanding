@@ -2,7 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { TestimonialCard } from "@/components/ui/TestimonialCard";
+import { Quote, Star } from "lucide-react";
+import { StaggerContainer, StaggerItem } from "@/components/ui/SectionReveal";
 
 const testimonials = [
   {
@@ -24,6 +25,65 @@ const testimonials = [
     months: "4 months in",
   },
 ];
+
+function getInitial(name: string) {
+  return name.charAt(0).toUpperCase();
+}
+
+function TestimonialCard({
+  quote,
+  name,
+  handle,
+  months,
+}: {
+  quote: string;
+  name: string;
+  handle: string;
+  months: string;
+}) {
+  return (
+    <motion.div
+      whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(18,50,68,0.08)" }}
+      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      className="relative rounded-3xl p-8 bg-white border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+    >
+      {/* Quote icon with gradient bg */}
+      <div
+        className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+        style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+      >
+        <Quote size={18} className="text-white" />
+      </div>
+
+      {/* Stars */}
+      <div className="flex gap-1 mb-4">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} size={14} fill="#FF0A7A" stroke="none" />
+        ))}
+      </div>
+
+      {/* Quote */}
+      <p className="text-[#123244] text-lg font-medium leading-relaxed mb-6">
+        &ldquo;{quote}&rdquo;
+      </p>
+
+      {/* Author */}
+      <div className="flex items-center gap-3">
+        {/* Avatar with gradient + initial */}
+        <div
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white text-sm font-bold"
+          style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+        >
+          {getInitial(name)}
+        </div>
+        <div>
+          <p className="font-semibold text-[#123244] text-sm">{name}</p>
+          <p className="text-gray-400 text-xs">{handle} · {months}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export function Testimonials() {
   const ref = useRef(null);
@@ -63,11 +123,17 @@ export function Testimonials() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
-            <TestimonialCard key={i} {...t} delay={i * 0.15} inView={inView} />
+        <StaggerContainer
+          className="grid md:grid-cols-3 gap-8"
+          stagger={0.15}
+          direction="up"
+        >
+          {testimonials.map((t) => (
+            <StaggerItem key={t.name}>
+              <TestimonialCard {...t} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

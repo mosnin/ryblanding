@@ -6,6 +6,7 @@ import {
   Dumbbell, UtensilsCrossed, Play, TrendingUp,
   CheckSquare, Users, Home, Star
 } from "lucide-react";
+import { StaggerContainer, StaggerItem } from "@/components/ui/SectionReveal";
 
 const features = [
   { icon: Dumbbell, label: "Custom glute focused workouts", color: "#22B8F0" },
@@ -26,7 +27,7 @@ export function WhatsIncluded() {
     <section
       ref={ref}
       className="py-24 px-4 sm:px-6 lg:px-8"
-      style={{ background: "linear-gradient(135deg, #EAF8FF 0%, #fff0f7 100%)" }}
+      style={{ background: "linear-gradient(135deg, #EAF8FF 0%, #fdf0f8 100%)" }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -37,13 +38,17 @@ export function WhatsIncluded() {
           className="text-center mb-16"
         >
           <span
-            className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{
               background: "linear-gradient(135deg, rgba(34,184,240,0.15), rgba(255,10,122,0.15))",
               color: "#123244",
               border: "1px solid rgba(34,184,240,0.3)"
             }}
           >
+            <span
+              className="w-2 h-2 rounded-full inline-block flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+            />
             Everything You Need
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
@@ -65,37 +70,56 @@ export function WhatsIncluded() {
         </motion.div>
 
         {/* Feature grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-          {features.map((feature, i) => {
+        <StaggerContainer
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5"
+          stagger={0.07}
+          direction="scale"
+        >
+          {features.map((feature) => {
             const Icon = feature.icon;
             return (
-              <motion.div
-                key={feature.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="group flex flex-col items-center text-center p-6 rounded-2xl bg-white border border-white shadow-sm hover:shadow-lg transition-all duration-300"
-              >
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
-                  style={{ background: `${feature.color}15` }}
+              <StaggerItem key={feature.label}>
+                <motion.div
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="group flex flex-col items-center text-center p-7 rounded-2xl bg-white border border-white shadow-sm hover:shadow-lg ring-1 ring-transparent transition-all duration-300"
+                  style={
+                    {
+                      "--ring-color": `${feature.color}33`,
+                    } as React.CSSProperties
+                  }
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.setProperty(
+                      "outline",
+                      `1px solid ${feature.color}33`
+                    );
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.setProperty("outline", "none");
+                  }}
                 >
-                  <Icon size={22} style={{ color: feature.color }} />
-                </div>
-                <span className="text-sm font-semibold text-[#123244] leading-snug">
-                  {feature.label}
-                </span>
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300"
+                    style={{ background: `${feature.color}15` }}
+                  >
+                    <Icon size={22} style={{ color: feature.color }} />
+                  </div>
+                  <span className="text-sm font-semibold text-[#123244] leading-snug">
+                    {feature.label}
+                  </span>
 
-                {/* Check indicator */}
-                <div className="mt-3 w-5 h-5 rounded-full flex items-center justify-center"
-                  style={{ background: `${feature.color}20` }}>
-                  <span style={{ color: feature.color }} className="text-xs">✓</span>
-                </div>
-              </motion.div>
+                  {/* Checkmark bottom indicator */}
+                  <div
+                    className="mt-3 w-5 h-5 rounded-full flex items-center justify-center"
+                    style={{ background: `${feature.color}20` }}
+                  >
+                    <span style={{ color: feature.color }} className="text-xs font-bold">✓</span>
+                  </div>
+                </motion.div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

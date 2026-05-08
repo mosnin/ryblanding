@@ -240,6 +240,8 @@ function Hero() {
               style={{ background: "linear-gradient(135deg,#22B8F0,#FF0A7A)" }}
             />
             <div
+              role="img"
+              aria-label="Coach image placeholder"
               className="relative rounded-t-3xl overflow-hidden h-[520px] lg:h-[600px] flex flex-col items-center justify-center"
               style={{
                 background:

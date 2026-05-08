@@ -189,7 +189,8 @@ export function FAQsPage() {
       </section>
 
       <CTASection
-        headline="Still have questions?"
+        headline="Still"
+        highlightText="have more questions?"
         subtext="Reach out and we'll get back to you within 24 hours."
         primaryCTA="Contact Us"
         primaryHref="/contact"
