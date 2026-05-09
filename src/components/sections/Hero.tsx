@@ -1,204 +1,120 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { ShimmerButton } from "@/components/ui/ShimmerButton";
-import { Zap, UtensilsCrossed, TrendingUp, Heart } from "lucide-react";
 
-const stats = [
-  { icon: Zap, label: "20–40 min workouts", color: "#22B8F0" },
-  { icon: UtensilsCrossed, label: "Custom meal plans", color: "#FF0A7A" },
-  { icon: TrendingUp, label: "Progress tracking", color: "#22B8F0" },
-  { icon: Heart, label: "Postpartum friendly", color: "#FF0A7A" },
-];
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
+  const reduce = useReducedMotion();
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Animated gradient background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(-45deg, #0a2233, #123244, #1a4462, #0d2d42)",
-          backgroundSize: "400% 400%",
-          animation: "gradient-x 12s ease infinite",
-        }}
-      />
+    <section className="bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px] gap-16 items-center">
 
-      {/* Orb decorations */}
-      <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-[#22B8F0]/15 blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-[#FF0A7A]/10 blur-3xl animate-float-delayed" />
-      <div className="absolute top-1/2 left-1/3 w-48 h-48 rounded-full bg-[#22B8F0]/10 blur-2xl animate-float-slow" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left: Content */}
+          {/* ── Left: Content ── */}
           <div>
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium mb-8 backdrop-blur-sm"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#22B8F0] animate-pulse" />
-              Premium Coaching for Women
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6"
-            >
-              Raise Your{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Bar
-              </span>
-            </motion.h1>
-
-            {/* Subheadline */}
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={reduce ? {} : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-xl text-white/70 leading-relaxed mb-10 max-w-xl"
+              transition={{ duration: 0.5, delay: 0, ease: EASE }}
+              className="text-xs font-semibold uppercase tracking-[0.18em] text-[#607586] mb-8"
             >
-              Glute focused training, custom nutrition, and confidence coaching
-              for busy women ready to feel strong in real life.
+              Premium coaching for women
             </motion.p>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
+            <motion.h1
+              initial={reduce ? {} : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-4 mb-16"
+              transition={{ duration: 0.6, delay: 0.07, ease: EASE }}
+              className="font-black text-[#0B1720] leading-[0.95] tracking-tight mb-8"
+              style={{ fontSize: "clamp(3.5rem, 9vw, 7rem)" }}
             >
-              <ShimmerButton size="lg">
-                <Link href="/get-started" className="flex items-center gap-2">
-                  Start Today
-                </Link>
-              </ShimmerButton>
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Link
-                  href="/get-started#pricing"
-                  className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-                >
-                  See What&apos;s Included
-                </Link>
-              </motion.div>
+              Raise<br />Your Bar
+            </motion.h1>
+
+            <motion.p
+              initial={reduce ? {} : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.14, ease: EASE }}
+              className="text-lg text-[#607586] leading-relaxed max-w-md mb-10"
+            >
+              Glute focused training, custom nutrition, and confidence coaching
+              for busy women who want results that fit real life.
+            </motion.p>
+
+            <motion.div
+              initial={reduce ? {} : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: EASE }}
+              className="flex flex-wrap items-center gap-5 mb-14"
+            >
+              <Link
+                href="/get-started"
+                className="btn-primary px-8 py-4 text-base font-semibold rounded-full inline-flex items-center"
+              >
+                Start Today
+              </Link>
+              <Link
+                href="/get-started"
+                className="text-[#0B1720] text-base font-medium underline underline-offset-4 decoration-[#25AEEB] hover:decoration-[#0B1720] transition-colors duration-150"
+              >
+                View Plans
+              </Link>
             </motion.div>
 
-            {/* Floating stat cards */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 gap-3"
+            <motion.p
+              initial={reduce ? {} : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.28, ease: EASE }}
+              className="text-sm text-[#607586]"
             >
-              {stats.map((stat, i) => {
-                const Icon = stat.icon;
-                return (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
-                    whileHover={{ scale: 1.03, y: -2 }}
-                    className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm"
-                    style={{ animation: `float ${4 + i * 0.5}s ease-in-out ${i * 0.3}s infinite` }}
-                  >
-                    <div
-                      className="p-2 rounded-xl"
-                      style={{ background: `${stat.color}20` }}
-                    >
-                      <Icon size={16} style={{ color: stat.color }} />
-                    </div>
-                    <span className="text-white/90 text-sm font-medium">{stat.label}</span>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
+              Trusted by 2,000+ women worldwide
+            </motion.p>
           </div>
 
-          {/* Right: Hero Image Placeholder */}
+          {/* ── Right: Image placeholder ── */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            initial={reduce ? {} : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.1, ease: EASE }}
+            className="hidden lg:block"
           >
-            <div className="relative rounded-3xl overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, rgba(34,184,240,0.1) 0%, rgba(255,10,122,0.1) 100%)",
-                border: "1px solid rgba(255,255,255,0.15)",
-                backdropFilter: "blur(10px)",
-              }}
+            <div
+              className="w-full rounded-2xl overflow-hidden bg-[#F0F4F7]"
+              style={{ aspectRatio: "3/4" }}
+              role="img"
+              aria-label="Hero lifestyle fitness photo placeholder"
             >
-              {/* Decorative glow */}
-              <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-[#22B8F0]/30 blur-2xl" />
-              <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-[#FF0A7A]/20 blur-2xl" />
-
-              {/* Placeholder */}
-              <div className="relative aspect-[4/5] flex flex-col items-center justify-center p-12">
-                <div className="absolute inset-0 rounded-3xl"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(34,184,240,0.08) 0%, rgba(255,10,122,0.08) 100%)"
-                  }}
-                />
-                <div className="relative z-10 text-center">
-                  <div className="w-20 h-20 rounded-full mx-auto mb-4"
-                    style={{
-                      background: "linear-gradient(135deg, #22B8F0, #FF0A7A)",
-                      opacity: 0.3
-                    }}
-                  />
-                  <div className="space-y-2">
-                    <div className="h-2 rounded-full bg-white/20 w-40 mx-auto" />
-                    <div className="h-2 rounded-full bg-white/15 w-32 mx-auto" />
-                    <div className="h-2 rounded-full bg-white/10 w-36 mx-auto" />
-                  </div>
-                  <p className="mt-8 text-white/40 text-sm font-medium tracking-wide uppercase">
-                    Hero image placeholder
-                  </p>
-                </div>
+              <div className="w-full h-full flex items-end p-6">
+                <p className="text-[#607586]/60 text-xs font-medium tracking-widest uppercase">
+                  Lifestyle · fitness photo
+                </p>
               </div>
             </div>
-
-            {/* Floating accent badge */}
-            <motion.div
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 px-5 py-3 rounded-2xl bg-white shadow-xl shadow-pink-500/20"
-            >
-              <span className="text-[#123244] font-bold text-sm">Join 2,000+ women</span>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [5, -5, 5] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-4 -right-4 px-4 py-2 rounded-xl bg-gradient-to-r from-[#22B8F0] to-[#FF0A7A] text-white text-xs font-bold shadow-lg"
-            >
-              ✦ Results Guaranteed
-            </motion.div>
           </motion.div>
-        </div>
-      </div>
 
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 80L1440 80L1440 40C1440 40 1080 0 720 0C360 0 0 40 0 40L0 80Z" fill="#FFFFFF" />
-        </svg>
+        </div>
+
+        {/* ── Divider + stats strip ── */}
+        <motion.div
+          initial={reduce ? {} : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.35, ease: EASE }}
+          className="mt-16 pt-10 border-t border-[#E8EDF0] grid grid-cols-3 gap-8"
+        >
+          {[
+            { stat: "20–40 min", label: "Workouts" },
+            { stat: "Custom", label: "Meal Plans" },
+            { stat: "App-based", label: "Coaching Platform" },
+          ].map(({ stat, label }) => (
+            <div key={label}>
+              <p className="text-2xl font-black text-[#0B1720] tracking-tight">{stat}</p>
+              <p className="text-sm text-[#607586] mt-1">{label}</p>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

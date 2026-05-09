@@ -11,12 +11,7 @@ export function AnimatedGradientBg({ className, children }: AnimatedGradientBgPr
   return (
     <div
       className={cn("relative overflow-hidden", className)}
-      style={{
-        background:
-          "linear-gradient(-45deg, #123244, #1a4a62, #22B8F0, #FF0A7A, #123244)",
-        backgroundSize: "400% 400%",
-        animation: "gradient-x 12s ease infinite",
-      }}
+      style={{ background: "#0B1720" }}
     >
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-cyan-400/20 blur-3xl -translate-x-1/2 -translate-y-1/2" />

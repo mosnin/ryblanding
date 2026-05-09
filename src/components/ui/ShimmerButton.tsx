@@ -1,88 +1,52 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 interface ShimmerButtonProps {
   children: ReactNode;
   className?: string;
-  onClick?: () => void;
-  href?: string;
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  type?: "button" | "submit" | "reset";
+  id?: string;
+  "aria-label"?: string;
 }
 
 export function ShimmerButton({
-  children,
-  className,
-  onClick,
-  variant = "primary",
-  size = "md",
+  children, className, variant = "primary", size = "md",
+  disabled, onClick, type = "button", id, "aria-label": ariaLabel,
 }: ShimmerButtonProps) {
-  const sizeClasses = {
-    sm: "px-4 py-2 text-sm",
-    md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg",
-  };
+  const sizes = { sm: "px-5 py-2.5 text-sm", md: "px-7 py-3 text-sm", lg: "px-9 py-4 text-base" };
 
-  const base =
-    "relative inline-flex items-center justify-center font-semibold rounded-full overflow-hidden transition-all duration-300 cursor-pointer select-none";
+  const base = cn(
+    "relative inline-flex items-center justify-center font-semibold rounded-full cursor-pointer select-none",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25AEEB] focus-visible:ring-offset-2",
+    disabled && "opacity-50 pointer-events-none",
+    sizes[size],
+  );
+
+  const sharedProps = { disabled, "aria-disabled": disabled, onClick, type, id, "aria-label": ariaLabel } as const;
 
   if (variant === "primary") {
     return (
-      <motion.button
-        onClick={onClick}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        className={cn(
-          base,
-          sizeClasses[size],
-          "text-white shadow-lg shadow-pink-500/30",
-          className
-        )}
-        style={{
-          background: "linear-gradient(90deg, #22B8F0, #FF0A7A, #22B8F0)",
-          backgroundSize: "200% auto",
-          animation: "shimmer 3s linear infinite",
-        }}
-      >
-        <span className="relative z-10">{children}</span>
-      </motion.button>
+      <button {...sharedProps} className={cn(base, "btn-primary", className)}>
+        <span className="relative z-10 flex items-center gap-2">{children}</span>
+      </button>
     );
   }
-
   if (variant === "secondary") {
     return (
-      <motion.button
-        onClick={onClick}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        className={cn(
-          base,
-          sizeClasses[size],
-          "bg-white text-[#123244] border-2 border-white/20 hover:bg-[#EAF8FF] shadow-md",
-          className
-        )}
-      >
-        {children}
-      </motion.button>
+      <button {...sharedProps} className={cn(base, "bg-white text-[#102B3A] border border-gray-200 hover:border-[#25AEEB]/40 hover:bg-[#EEF8FC] shadow-sm transition-all duration-150", className)}>
+        <span className="flex items-center gap-2">{children}</span>
+      </button>
     );
   }
-
   return (
-    <motion.button
-      onClick={onClick}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.97 }}
-      className={cn(
-        base,
-        sizeClasses[size],
-        "bg-transparent text-[#22B8F0] border-2 border-[#22B8F0] hover:bg-[#22B8F0] hover:text-white",
-        className
-      )}
-    >
-      {children}
-    </motion.button>
+    <button {...sharedProps} className={cn(base, "bg-transparent text-[#25AEEB] border-2 border-[#25AEEB] hover:bg-[#25AEEB] hover:text-white transition-colors duration-150", className)}>
+      <span className="flex items-center gap-2">{children}</span>
+    </button>
   );
 }

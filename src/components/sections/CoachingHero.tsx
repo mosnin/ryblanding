@@ -9,11 +9,7 @@ export function CoachingHero() {
   return (
     <section
       className="relative pt-32 pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      style={{
-        background: "linear-gradient(-45deg, #0a2233, #123244, #1a4462, #0d2d42)",
-        backgroundSize: "400% 400%",
-        animation: "gradient-x 12s ease infinite",
-      }}
+      style={{ background: "#0B1720" }}
     >
       <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-[#FF0A7A]/10 blur-3xl" />
       <div className="absolute bottom-0 left-10 w-64 h-64 rounded-full bg-[#22B8F0]/15 blur-3xl" />
@@ -31,14 +27,7 @@ export function CoachingHero() {
             </span>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
               Your Coach.{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 Your Plan.
               </span>{" "}
               Your Results.

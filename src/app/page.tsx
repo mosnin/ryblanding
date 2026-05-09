@@ -20,7 +20,8 @@ export default function HomePage() {
       <Testimonials />
       <FAQPreview />
       <CTASection
-        headline="Ready to raise your bar?"
+        headline="Ready to"
+        highlightText="raise your bar?"
         subtext="Join thousands of women building strength, confidence, and real results. Your transformation starts today."
         primaryCTA="Start Today"
         primaryHref="/get-started"

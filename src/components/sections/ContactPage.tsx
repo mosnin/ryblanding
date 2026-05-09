@@ -36,11 +36,7 @@ export function ContactPage() {
       {/* Hero */}
       <section
         className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
-        style={{
-          background: "linear-gradient(-45deg, #0a2233, #123244, #1a4462, #0d2d42)",
-          backgroundSize: "400% 400%",
-          animation: "gradient-x 12s ease infinite",
-        }}
+        style={{ background: "#0B1720" }}
       >
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-[#22B8F0]/15 blur-3xl" />
         <div className="absolute bottom-0 right-10 w-64 h-64 rounded-full bg-[#FF0A7A]/10 blur-3xl" />
@@ -56,14 +52,7 @@ export function ContactPage() {
             </span>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">
               Get in{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 Touch
               </span>
             </h1>
@@ -130,20 +119,22 @@ export function ContactPage() {
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-[#123244] mb-2">
+                  <label htmlFor="contact-first-name" className="block text-sm font-semibold text-[#123244] mb-2">
                     First Name
                   </label>
                   <input
+                    id="contact-first-name"
                     type="text"
                     placeholder="Jane"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#22B8F0] focus:ring-2 focus:ring-[#22B8F0]/20 transition-all text-[#123244]"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-[#123244] mb-2">
+                  <label htmlFor="contact-last-name" className="block text-sm font-semibold text-[#123244] mb-2">
                     Last Name
                   </label>
                   <input
+                    id="contact-last-name"
                     type="text"
                     placeholder="Smith"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#22B8F0] focus:ring-2 focus:ring-[#22B8F0]/20 transition-all text-[#123244]"
@@ -151,20 +142,21 @@ export function ContactPage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#123244] mb-2">
+                <label htmlFor="contact-email" className="block text-sm font-semibold text-[#123244] mb-2">
                   Email Address
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   placeholder="jane@example.com"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#22B8F0] focus:ring-2 focus:ring-[#22B8F0]/20 transition-all text-[#123244]"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#123244] mb-2">
+                <label htmlFor="contact-subject" className="block text-sm font-semibold text-[#123244] mb-2">
                   Subject
                 </label>
-                <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#22B8F0] focus:ring-2 focus:ring-[#22B8F0]/20 transition-all text-[#123244] bg-white">
+                <select id="contact-subject" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#22B8F0] focus:ring-2 focus:ring-[#22B8F0]/20 transition-all text-[#123244] bg-white">
                   <option>General Question</option>
                   <option>Program Inquiry</option>
                   <option>1:1 Coaching</option>
@@ -173,10 +165,11 @@ export function ContactPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#123244] mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-semibold text-[#123244] mb-2">
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   rows={5}
                   placeholder="Tell us how we can help..."
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#22B8F0] focus:ring-2 focus:ring-[#22B8F0]/20 transition-all resize-none text-[#123244]"
@@ -186,7 +179,7 @@ export function ContactPage() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 text-white font-semibold rounded-full shimmer-btn text-lg"
+                className="w-full py-4 text-white font-semibold rounded-full btn-primary text-lg"
               >
                 Send Message
               </motion.button>
