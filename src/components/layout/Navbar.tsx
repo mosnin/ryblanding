@@ -115,17 +115,12 @@ export function Navbar() {
               >
                 View Plans
               </Link>
-              <motion.div
-                whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
-                whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+              <Link
+                href="/get-started"
+                className="px-5 py-2.5 text-sm font-semibold text-white rounded-full btn-primary"
               >
-                <Link
-                  href="/get-started"
-                  className="px-5 py-2.5 text-sm font-semibold text-white rounded-full shadow-lg shadow-pink-500/30 shimmer-btn"
-                >
-                  Start Today
-                </Link>
-              </motion.div>
+                Start Today
+              </Link>
             </div>
 
             {/* Mobile Hamburger */}
@@ -270,7 +265,7 @@ export function Navbar() {
                 <Link
                   href="/get-started"
                   onClick={() => setMobileOpen(false)}
-                  className="w-full text-center px-5 py-3 text-white text-sm font-semibold rounded-full shimmer-btn"
+                  className="w-full text-center px-5 py-3 text-white text-sm font-semibold rounded-full btn-primary"
                 >
                   Start Today
                 </Link>

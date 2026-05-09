@@ -80,7 +80,7 @@ export function WhatsIncluded() {
             return (
               <StaggerItem key={feature.label}>
                 <motion.div
-                  whileHover={{ y: -4, scale: 1.02 }}
+                  whileHover={{ y: -4 }}
                   transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                   className="group flex flex-col items-center text-center p-7 rounded-2xl bg-white border border-white shadow-sm hover:shadow-lg ring-1 ring-transparent transition-all duration-300"
                   style={
@@ -88,18 +88,9 @@ export function WhatsIncluded() {
                       "--ring-color": `${feature.color}33`,
                     } as React.CSSProperties
                   }
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.setProperty(
-                      "outline",
-                      `1px solid ${feature.color}33`
-                    );
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.setProperty("outline", "none");
-                  }}
                 >
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-3 transition-transform duration-300"
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
                     style={{ background: `${feature.color}15` }}
                   >
                     <Icon size={22} style={{ color: feature.color }} />

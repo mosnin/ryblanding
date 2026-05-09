@@ -98,15 +98,12 @@ export function AppExperience() {
               {bullets.map((item) => (
                 <StaggerItem key={item}>
                   <div className="flex items-center gap-3">
-                    <motion.div
+                    <div
                       className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold"
                       style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      animate={inView ? { scale: 1, opacity: 1 } : {}}
-                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     >
                       ✓
-                    </motion.div>
+                    </div>
                     <span className="text-gray-600">{item}</span>
                   </div>
                 </StaggerItem>
@@ -127,20 +124,10 @@ export function AppExperience() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: screen.y } : {}}
                 transition={{ duration: 0.7, delay: screen.delay + 0.3, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: screen.y - 8, transition: { duration: 0.2 } }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="relative"
                 style={{ rotate: `${screen.rotate}deg` }}
               >
-                {/* Center phone glow */}
-                {screen.center && (
-                  <div
-                    className="absolute inset-0 -z-10 blur-2xl rounded-full scale-110"
-                    style={{
-                      background: "radial-gradient(circle, rgba(34,184,240,0.35) 0%, transparent 70%)",
-                    }}
-                  />
-                )}
-
                 {/* Phone shell */}
                 <div
                   className={`relative rounded-[2.5rem] shadow-2xl overflow-hidden ${
@@ -219,11 +206,6 @@ export function AppExperience() {
               </motion.div>
             ))}
 
-            {/* Background glow */}
-            <div className="absolute inset-0 -z-10">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-[#22B8F0]/12 blur-3xl" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-[#FF0A7A]/8 blur-2xl" />
-            </div>
           </motion.div>
         </div>
       </div>

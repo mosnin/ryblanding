@@ -43,13 +43,13 @@ function TestimonialCard({
 }) {
   return (
     <motion.div
-      whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(18,50,68,0.08)" }}
-      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
       className="relative rounded-3xl p-8 bg-white border border-gray-100 hover:shadow-xl transition-all duration-300 group"
     >
       {/* Quote icon with gradient bg */}
       <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+        className="w-10 h-10 rounded-xl flex items-center justify-center mb-6"
         style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
       >
         <Quote size={18} className="text-white" />

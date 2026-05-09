@@ -118,11 +118,7 @@ export function FAQsPage() {
       {/* Hero */}
       <section
         className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
-        style={{
-          background: "linear-gradient(-45deg, #0a2233, #123244, #1a4462, #0d2d42)",
-          backgroundSize: "400% 400%",
-          animation: "gradient-x 12s ease infinite",
-        }}
+        style={{ background: "#0B1720" }}
       >
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-[#22B8F0]/15 blur-3xl" />
         <div className="absolute bottom-0 right-10 w-64 h-64 rounded-full bg-[#FF0A7A]/10 blur-3xl" />

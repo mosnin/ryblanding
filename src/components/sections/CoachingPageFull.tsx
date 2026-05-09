@@ -148,11 +148,7 @@ function Hero() {
   return (
     <section
       className="relative pt-36 pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      style={{
-        background: "linear-gradient(-45deg,#0a2233,#123244,#1a4462,#0d2d42)",
-        backgroundSize: "400% 400%",
-        animation: "gradient-x 12s ease infinite",
-      }}
+      style={{ background: "#0B1720" }}
     >
       <div className="absolute top-16 right-0 w-96 h-96 rounded-full bg-[#FF0A7A]/10 blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-[#22B8F0]/10 blur-3xl pointer-events-none" />
@@ -662,12 +658,7 @@ function ApplicationCTA() {
     <section
       ref={ref}
       className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(-45deg,#0a2233,#123244,#1a4462,#0d2d42)",
-        backgroundSize: "400% 400%",
-        animation: "gradient-x 12s ease infinite",
-      }}
+      style={{ background: "#0B1720" }}
     >
       {/* Orbs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#22B8F0]/15 blur-3xl pointer-events-none" />
@@ -739,9 +730,7 @@ function ApplicationCTA() {
             />
 
             {/* Glass stats */}
-            <motion.div
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            <div
               className="absolute -bottom-5 -left-5 px-5 py-3 rounded-2xl shadow-xl"
               style={{
                 background: "rgba(18,50,68,0.85)",
@@ -751,16 +740,14 @@ function ApplicationCTA() {
             >
               <p className="text-white/50 text-xs mb-0.5">Response time</p>
               <p className="text-white font-bold text-sm">Within 48 hours</p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              animate={{ y: [4, -4, 4] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+            <div
               className="absolute -top-4 -right-4 px-4 py-2 rounded-xl shadow-lg"
               style={{ background: "linear-gradient(90deg,#22B8F0,#FF0A7A)" }}
             >
               <p className="text-white font-bold text-xs">Personalized ✦</p>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

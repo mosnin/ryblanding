@@ -93,31 +93,16 @@ export function Pricing() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={plan.popular ? { y: -8, transition: { duration: 0.2 } } : { y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className={`relative rounded-3xl overflow-hidden ${
                 plan.popular
                   ? "shadow-2xl shadow-pink-500/20"
                   : "shadow-lg border-2 border-gray-100 hover:border-[#22B8F0]/30 transition-colors duration-300"
               }`}
             >
-              {/* Annual: shimmer accent bar */}
+              {/* Annual: static accent bar */}
               {plan.popular && (
-                <div className="relative overflow-hidden">
-                  <div
-                    className="absolute top-0 left-0 right-0 h-1"
-                    style={{ background: "linear-gradient(90deg, #22B8F0, #FF0A7A)" }}
-                  />
-                  {/* Shimmer sweep */}
-                  <motion.div
-                    className="absolute top-0 left-0 h-1 w-1/3"
-                    style={{
-                      background:
-                        "linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)",
-                    }}
-                    animate={{ x: ["-100%", "400%"] }}
-                    transition={{ duration: 2.4, repeat: Infinity, repeatDelay: 1.6, ease: "easeInOut" }}
-                  />
-                </div>
+                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, #25AEEB, #F72585)" }} />
               )}
 
               {/* Most popular floating tag */}
@@ -210,18 +195,16 @@ export function Pricing() {
                     <Link href="/get-started">{plan.cta}</Link>
                   </ShimmerButton>
                 ) : (
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Link
-                      href="/get-started"
-                      className="group relative block w-full text-center px-6 py-4 rounded-full border-2 border-[#22B8F0] text-[#22B8F0] font-semibold overflow-hidden transition-colors duration-300 hover:text-white"
-                    >
-                      <span
-                        className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full"
-                        style={{ background: "#22B8F0" }}
-                      />
-                      <span className="relative">{plan.cta}</span>
-                    </Link>
-                  </motion.div>
+                  <Link
+                    href="/get-started"
+                    className="group relative block w-full text-center px-6 py-4 rounded-full border-2 border-[#22B8F0] text-[#22B8F0] font-semibold overflow-hidden transition-colors duration-300 hover:text-white"
+                  >
+                    <span
+                      className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full"
+                      style={{ background: "#22B8F0" }}
+                    />
+                    <span className="relative">{plan.cta}</span>
+                  </Link>
                 )}
               </div>
             </motion.div>
