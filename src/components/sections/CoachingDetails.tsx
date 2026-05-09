@@ -64,14 +64,7 @@ export function CoachingDetails() {
         >
           <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
             What&apos;s{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               Included
             </span>
           </h2>

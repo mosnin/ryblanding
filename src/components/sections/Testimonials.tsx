@@ -2,131 +2,89 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Quote, Star } from "lucide-react";
-import { StaggerContainer, StaggerItem } from "@/components/ui/SectionReveal";
 
-const testimonials = [
-  {
-    quote: "I finally stopped guessing and started seeing progress.",
-    name: "Sarah M.",
-    handle: "@sarahlifts",
-    months: "3 months in",
-  },
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const featured = {
+  quote: "I finally stopped guessing and started seeing real progress. This program changed everything.",
+  name: "Sarah M.",
+  detail: "3 months in",
+};
+
+const supporting = [
   {
     quote: "The workouts fit my schedule and actually made me stronger.",
     name: "Jessica R.",
-    handle: "@jessfit",
-    months: "5 months in",
+    detail: "5 months in",
   },
   {
     quote: "This helped me feel confident in my body again.",
     name: "Amanda K.",
-    handle: "@amandastrong",
-    months: "4 months in",
+    detail: "4 months in",
   },
 ];
-
-function getInitial(name: string) {
-  return name.charAt(0).toUpperCase();
-}
-
-function TestimonialCard({
-  quote,
-  name,
-  handle,
-  months,
-}: {
-  quote: string;
-  name: string;
-  handle: string;
-  months: string;
-}) {
-  return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2 }}
-      className="relative rounded-3xl p-8 bg-white border border-gray-100 hover:shadow-xl transition-all duration-300 group"
-    >
-      {/* Quote icon with gradient bg */}
-      <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center mb-6"
-        style={{ background: "#25AEEB" }}
-      >
-        <Quote size={18} className="text-white" />
-      </div>
-
-      {/* Stars */}
-      <div className="flex gap-1 mb-4">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} size={14} fill="#FF0A7A" stroke="none" />
-        ))}
-      </div>
-
-      {/* Quote */}
-      <p className="text-[#123244] text-lg font-medium leading-relaxed mb-6">
-        &ldquo;{quote}&rdquo;
-      </p>
-
-      {/* Author */}
-      <div className="flex items-center gap-3">
-        {/* Avatar with gradient + initial */}
-        <div
-          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white text-sm font-bold"
-          style={{ background: "#25AEEB" }}
-        >
-          {getInitial(name)}
-        </div>
-        <div>
-          <p className="font-semibold text-[#123244] text-sm">{name}</p>
-          <p className="text-gray-400 text-xs">{handle} · {months}</p>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 export function Testimonials() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E8EDF0]">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
-            style={{
-              background: "rgba(37,174,235,0.08)",
-              color: "#25AEEB",
-              border: "1px solid rgba(37,174,235,0.2)"
-            }}
-          >
-            What Members Say
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-black text-[#123244]">
-            Real{" "}
-            <span style={{ color: "#25AEEB" }}>
-              Results
-            </span>
-          </h2>
-        </motion.div>
 
-        <StaggerContainer
-          className="grid md:grid-cols-3 gap-8"
-          stagger={0.15}
-          direction="up"
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, ease: EASE }}
+          className="text-xs font-semibold uppercase tracking-[0.18em] text-[#607586] mb-16"
         >
-          {testimonials.map((t) => (
-            <StaggerItem key={t.name}>
-              <TestimonialCard {...t} />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+          What members say
+        </motion.p>
+
+        <div className="grid lg:grid-cols-[3fr_2fr] gap-16 items-start">
+
+          {/* Featured quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.05, ease: EASE }}
+          >
+            <p
+              className="font-black text-[#0B1720] leading-tight tracking-tight mb-8"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)" }}
+            >
+              &ldquo;{featured.quote}&rdquo;
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#25AEEB] flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                {featured.name.charAt(0)}
+              </div>
+              <div>
+                <p className="font-semibold text-[#0B1720] text-sm">{featured.name}</p>
+                <p className="text-[#607586] text-xs">{featured.detail}</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Supporting quotes */}
+          <div className="flex flex-col gap-0">
+            {supporting.map((t, i) => (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 12 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.12 + i * 0.1, ease: EASE }}
+                className="py-8 border-t border-[#E8EDF0]"
+              >
+                <p className="text-[#0B1720] font-medium leading-relaxed mb-4 text-lg">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <p className="text-[#607586] text-sm">{t.name} · {t.detail}</p>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   );

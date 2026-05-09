@@ -31,15 +31,7 @@ export function TransformationGallery() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-6 text-white/80 border border-white/20 bg-white/10">
-            Real Results
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-            Transformation{" "}
-            <span style={{ color: "#25AEEB" }}>
-              Gallery
-            </span>
-          </h2>
+          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">Transformation Gallery</h2>
           <p className="text-white/60 text-lg max-w-xl mx-auto">
             Real women, real results. See what happens when you commit to the program.
           </p>

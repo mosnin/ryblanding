@@ -57,22 +57,8 @@ export function Pricing() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
-            style={{
-              background: "rgba(37,174,235,0.08)",
-              color: "#25AEEB",
-              border: "1px solid rgba(37,174,235,0.2)"
-            }}
-          >
-            Simple Pricing
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
-            Choose Your{" "}
-            <span style={{ color: "#25AEEB" }}>
-              Plan
-            </span>
-          </h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#607586] mb-4">Pricing</p>
+          <h2 className="text-4xl sm:text-5xl font-black text-[#0B1720] mb-4">Choose Your Plan</h2>
           <p className="text-lg text-gray-500 max-w-xl mx-auto">
             Everything included in every plan. Cancel anytime.
           </p>

@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { SectionReveal } from "@/components/ui/SectionReveal";
-import { ArrowRight, HelpCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const faqs = [
   {
@@ -52,25 +52,7 @@ export function FAQPreview() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          {/* FAQ badge */}
-          <span
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
-            style={{
-              background: "rgba(37,174,235,0.08)",
-              color: "#22B8F0",
-              border: "1px solid rgba(37,174,235,0.2)",
-            }}
-          >
-            <HelpCircle size={13} />
-            FAQ
-          </span>
-
-          <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
-            Frequently Asked{" "}
-            <span style={{ color: "#25AEEB" }}>
-              Questions
-            </span>
-          </h2>
+          <h2 className="text-4xl sm:text-5xl font-black text-[#0B1720] mb-4">Frequently Asked Questions</h2>
         </motion.div>
 
         <SectionReveal delay={0.2}>

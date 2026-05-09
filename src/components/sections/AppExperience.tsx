@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Smartphone } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/ui/SectionReveal";
 
 const screens = [
@@ -57,27 +56,7 @@ export function AppExperience() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Badge with phone icon */}
-            <span
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
-              style={{
-                background: "rgba(37,174,235,0.08)",
-                color: "#FF0A7A",
-                border: "1px solid rgba(37,174,235,0.2)"
-              }}
-            >
-              <Smartphone size={14} />
-              The App Experience
-            </span>
-
-            <h2 className="text-4xl sm:text-5xl font-black text-[#123244] leading-tight mb-6">
-              Everything in one{" "}
-              <span
-                style={{ color: "#25AEEB" }}
-              >
-                simple coaching hub.
-              </span>
-            </h2>
+            <h2 className="text-4xl sm:text-5xl font-black text-[#0B1720] leading-tight mb-6">Everything in one simple coaching hub.</h2>
             <p className="text-lg text-gray-500 leading-relaxed mb-8">
               Your workouts, nutrition, progress photos, habit tracking, and
               community — all in one beautifully designed coaching platform.

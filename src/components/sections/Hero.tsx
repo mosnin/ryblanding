@@ -2,69 +2,53 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { Dumbbell, Apple, TrendingUp } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-
-const trustCards = [
-  { icon: Dumbbell,    label: "Custom Workouts" },
-  { icon: Apple,       label: "Smart Nutrition" },
-  { icon: TrendingUp,  label: "Progress Tracking" },
-];
 
 export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section
-      className="relative min-h-screen flex items-center"
-      style={{ backgroundColor: "#0B1720" }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-        {/* ── Two-column grid ── */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px] gap-16 items-center">
 
           {/* ── Left: Content ── */}
           <div>
-            {/* Eyebrow */}
             <motion.p
-              initial={reduce ? {} : { opacity: 0, y: 16 }}
+              initial={reduce ? {} : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0, ease: EASE }}
-              className="uppercase tracking-widest text-sm font-medium mb-6"
-              style={{ color: "#607586" }}
+              transition={{ duration: 0.5, delay: 0, ease: EASE }}
+              className="text-xs font-semibold uppercase tracking-[0.18em] text-[#607586] mb-8"
             >
               Premium coaching for women
             </motion.p>
 
-            {/* H1 */}
             <motion.h1
               initial={reduce ? {} : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.06, ease: EASE }}
-              className="font-black text-white leading-tight tracking-tight mb-6"
-              style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)" }}
+              transition={{ duration: 0.6, delay: 0.07, ease: EASE }}
+              className="font-black text-[#0B1720] leading-[0.95] tracking-tight mb-8"
+              style={{ fontSize: "clamp(3.5rem, 9vw, 7rem)" }}
             >
-              Raise Your Bar
+              Raise<br />Your Bar
             </motion.h1>
 
-            {/* Subheadline */}
             <motion.p
-              initial={reduce ? {} : { opacity: 0, y: 16 }}
+              initial={reduce ? {} : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.12, ease: EASE }}
-              className="text-lg text-white/60 leading-relaxed max-w-lg mb-10"
+              transition={{ duration: 0.5, delay: 0.14, ease: EASE }}
+              className="text-lg text-[#607586] leading-relaxed max-w-md mb-10"
             >
               Glute focused training, custom nutrition, and confidence coaching
               for busy women who want results that fit real life.
             </motion.p>
 
-            {/* CTA row */}
             <motion.div
-              initial={reduce ? {} : { opacity: 0, y: 16 }}
+              initial={reduce ? {} : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.18, ease: EASE }}
-              className="flex flex-wrap items-center gap-4"
+              transition={{ duration: 0.5, delay: 0.2, ease: EASE }}
+              className="flex flex-wrap items-center gap-5 mb-14"
             >
               <Link
                 href="/get-started"
@@ -74,55 +58,60 @@ export function Hero() {
               </Link>
               <Link
                 href="/get-started"
-                className="text-white/60 hover:text-white text-base font-medium inline-flex items-center gap-1 transition-colors duration-150"
+                className="text-[#0B1720] text-base font-medium underline underline-offset-4 decoration-[#25AEEB] hover:decoration-[#0B1720] transition-colors duration-150"
               >
                 View Plans
               </Link>
             </motion.div>
+
+            <motion.p
+              initial={reduce ? {} : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.28, ease: EASE }}
+              className="text-sm text-[#607586]"
+            >
+              Trusted by 2,000+ women worldwide
+            </motion.p>
           </div>
 
           {/* ── Right: Image placeholder ── */}
           <motion.div
-            initial={reduce ? {} : { opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
+            initial={reduce ? {} : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.1, ease: EASE }}
+            className="hidden lg:block"
           >
             <div
-              className="rounded-2xl flex flex-col items-center justify-end p-6"
-              style={{
-                aspectRatio: "4/5",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.12)",
-              }}
+              className="w-full rounded-2xl overflow-hidden bg-[#F0F4F7]"
+              style={{ aspectRatio: "3/4" }}
+              role="img"
+              aria-label="Hero lifestyle fitness photo placeholder"
             >
-              <div className="w-full h-3/4 bg-white/5 rounded-xl mb-4" />
-              <p
-                className="text-white/20 text-xs tracking-wider uppercase text-center"
-              >
-                Hero image · lifestyle fitness photo
-              </p>
+              <div className="w-full h-full flex items-end p-6">
+                <p className="text-[#607586]/60 text-xs font-medium tracking-widest uppercase">
+                  Lifestyle · fitness photo
+                </p>
+              </div>
             </div>
           </motion.div>
+
         </div>
 
-        {/* ── Trust cards ── */}
+        {/* ── Divider + stats strip ── */}
         <motion.div
-          initial={reduce ? {} : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.25, ease: EASE }}
-          className="grid grid-cols-3 gap-4 mt-16"
+          initial={reduce ? {} : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.35, ease: EASE }}
+          className="mt-16 pt-10 border-t border-[#E8EDF0] grid grid-cols-3 gap-8"
         >
-          {trustCards.map(({ icon: Icon, label }) => (
-            <div
-              key={label}
-              className="rounded-xl p-5"
-              style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.10)",
-              }}
-            >
-              <Icon size={22} style={{ color: "#25AEEB" }} className="mb-3" />
-              <p className="text-white text-sm font-semibold">{label}</p>
+          {[
+            { stat: "20–40 min", label: "Workouts" },
+            { stat: "Custom", label: "Meal Plans" },
+            { stat: "App-based", label: "Coaching Platform" },
+          ].map(({ stat, label }) => (
+            <div key={label}>
+              <p className="text-2xl font-black text-[#0B1720] tracking-tight">{stat}</p>
+              <p className="text-sm text-[#607586] mt-1">{label}</p>
             </div>
           ))}
         </motion.div>

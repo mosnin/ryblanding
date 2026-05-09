@@ -559,8 +559,8 @@ export function GetStartedPage() {
                     style={{
                       background:
                         i % 2 === 0
-                          ? "linear-gradient(135deg,rgba(34,184,240,0.15),rgba(34,184,240,0.05))"
-                          : "linear-gradient(135deg,rgba(255,10,122,0.12),rgba(255,10,122,0.04))",
+                          ? "rgba(37,174,235,0.1)"
+                          : "rgba(255,10,122,0.08)",
                       color: i % 2 === 0 ? "#22B8F0" : "#FF0A7A",
                     }}
                   >
@@ -608,14 +608,7 @@ export function GetStartedPage() {
           >
             <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-3">
               Women who{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 raised their bar
               </span>
             </h2>
@@ -635,7 +628,7 @@ export function GetStartedPage() {
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
                   style={{
-                    background: "linear-gradient(135deg,#22B8F0,#FF0A7A)",
+                    background: "#25AEEB",
                   }}
                 >
                   <Quote size={16} className="text-white" />
@@ -661,8 +654,7 @@ export function GetStartedPage() {
                   <div
                     className="w-10 h-10 rounded-full"
                     style={{
-                      background:
-                        "linear-gradient(135deg,#22B8F0,#FF0A7A)",
+                      background: "#25AEEB",
                       opacity: 0.35,
                     }}
                   />
@@ -684,7 +676,7 @@ export function GetStartedPage() {
         ref={faqRef}
         className="py-24 px-4 sm:px-6 lg:px-8"
         style={{
-          background: "linear-gradient(135deg,#EAF8FF 0%,#fff0f7 100%)",
+          background: "#F5F7FA",
         }}
       >
         <div className="max-w-3xl mx-auto">
@@ -697,8 +689,7 @@ export function GetStartedPage() {
             <span
               className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
               style={{
-                background:
-                  "linear-gradient(135deg,rgba(34,184,240,0.1),rgba(255,10,122,0.1))",
+                background: "rgba(37,174,235,0.08)",
                 color: "#22B8F0",
                 border: "1px solid rgba(34,184,240,0.3)",
               }}
@@ -707,14 +698,7 @@ export function GetStartedPage() {
             </span>
             <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-3">
               Before you{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 commit
               </span>
             </h2>
@@ -753,14 +737,7 @@ export function GetStartedPage() {
             </p>
             <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
               Ready to{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 raise your bar?
               </span>
             </h2>
