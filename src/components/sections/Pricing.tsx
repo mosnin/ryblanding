@@ -47,7 +47,7 @@ export function Pricing() {
     <section
       ref={ref}
       className="py-24 px-4 sm:px-6 lg:px-8"
-      style={{ background: "linear-gradient(180deg, #F8FAFB 0%, #F5F7FA 100%)" }}
+      style={{ background: "#F5F7FA" }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -60,23 +60,16 @@ export function Pricing() {
           <span
             className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{
-              background: "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
-              color: "#FF0A7A",
-              border: "1px solid rgba(255,10,122,0.2)"
+              background: "rgba(37,174,235,0.08)",
+              color: "#25AEEB",
+              border: "1px solid rgba(37,174,235,0.2)"
             }}
           >
             Simple Pricing
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
             Choose Your{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               Plan
             </span>
           </h2>
@@ -102,7 +95,7 @@ export function Pricing() {
             >
               {/* Annual: static accent bar */}
               {plan.popular && (
-                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "linear-gradient(90deg, #25AEEB, #F72585)" }} />
+                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "#25AEEB" }} />
               )}
 
               {/* Most popular floating tag */}
@@ -110,7 +103,7 @@ export function Pricing() {
                 <div className="absolute top-4 right-4 z-10">
                   <span
                     className="px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg"
-                    style={{ background: "linear-gradient(90deg, #22B8F0, #FF0A7A)" }}
+                    style={{ background: "#25AEEB" }}
                   >
                     Most Popular
                   </span>
@@ -131,7 +124,7 @@ export function Pricing() {
                   {plan.popular && (
                     <span
                       className="mt-8 px-3 py-1 rounded-full text-xs font-bold text-white"
-                      style={{ background: "rgba(34,184,240,0.25)" }}
+                      style={{ background: "rgba(37,174,235,0.2)" }}
                     >
                       Best Value
                     </span>
@@ -155,8 +148,8 @@ export function Pricing() {
                   <span
                     className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-6"
                     style={{
-                      background: "rgba(34,184,240,0.2)",
-                      color: "#22B8F0"
+                      background: "rgba(37,174,235,0.2)",
+                      color: "#25AEEB"
                     }}
                   >
                     {plan.savings} vs monthly
@@ -171,8 +164,8 @@ export function Pricing() {
                         className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                         style={{
                           background: plan.popular
-                            ? "linear-gradient(135deg, #22B8F0, #FF0A7A)"
-                            : "linear-gradient(135deg, rgba(255,10,122,0.15), rgba(34,184,240,0.15))",
+                            ? "#25AEEB"
+                            : "rgba(37,174,235,0.12)",
                         }}
                       >
                         <Check size={11} style={{ color: plan.popular ? "#fff" : "#FF0A7A" }} />

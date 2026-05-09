@@ -30,7 +30,7 @@ export function MembersPlaceholder() {
         >
           <div
             className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8"
-            style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+            style={{ background: "#25AEEB" }}
           >
             <Lock size={36} className="text-white" />
           </div>

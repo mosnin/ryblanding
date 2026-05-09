@@ -41,7 +41,7 @@ export function PricingCard({
       {popular && (
         <div
           className="absolute top-0 left-0 right-0 h-1"
-          style={{ background: "linear-gradient(90deg, #22B8F0, #FF0A7A)" }}
+          style={{ background: "#25AEEB" }}
         />
       )}
 
@@ -56,7 +56,7 @@ export function PricingCard({
           {popular && (
             <span
               className="px-3 py-1 rounded-full text-xs font-bold text-white"
-              style={{ background: "linear-gradient(90deg, #22B8F0, #FF0A7A)" }}
+              style={{ background: "#25AEEB" }}
             >
               Best Value
             </span>

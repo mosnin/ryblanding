@@ -56,9 +56,9 @@ export function FAQPreview() {
           <span
             className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{
-              background: "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
+              background: "rgba(37,174,235,0.08)",
               color: "#22B8F0",
-              border: "1px solid rgba(34,184,240,0.3)",
+              border: "1px solid rgba(37,174,235,0.2)",
             }}
           >
             <HelpCircle size={13} />
@@ -67,14 +67,7 @@ export function FAQPreview() {
 
           <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
             Frequently Asked{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               Questions
             </span>
           </h2>

@@ -19,8 +19,7 @@ export function ImagePlaceholder({
         className
       )}
       style={{
-        background:
-          "linear-gradient(135deg, rgba(34,184,240,0.1) 0%, rgba(255,10,122,0.08) 50%, rgba(18,50,68,0.1) 100%)",
+        background: "rgba(37,174,235,0.08)",
         border: "1.5px dashed rgba(34,184,240,0.3)",
       }}
       role="img"
@@ -30,7 +29,7 @@ export function ImagePlaceholder({
         <div
           className="w-16 h-16 rounded-2xl flex items-center justify-center opacity-40"
           style={{
-            background: "linear-gradient(135deg, #22B8F0, #FF0A7A)",
+            background: "#25AEEB",
           }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">

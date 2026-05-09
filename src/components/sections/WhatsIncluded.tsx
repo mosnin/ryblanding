@@ -27,7 +27,7 @@ export function WhatsIncluded() {
     <section
       ref={ref}
       className="py-24 px-4 sm:px-6 lg:px-8"
-      style={{ background: "linear-gradient(135deg, #EAF8FF 0%, #fdf0f8 100%)" }}
+      style={{ background: "#F8FAFB" }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -40,27 +40,20 @@ export function WhatsIncluded() {
           <span
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{
-              background: "linear-gradient(135deg, rgba(34,184,240,0.15), rgba(255,10,122,0.15))",
+              background: "rgba(37,174,235,0.08)",
               color: "#123244",
-              border: "1px solid rgba(34,184,240,0.3)"
+              border: "1px solid rgba(37,174,235,0.2)"
             }}
           >
             <span
               className="w-2 h-2 rounded-full inline-block flex-shrink-0"
-              style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+              style={{ background: "#25AEEB" }}
             />
             Everything You Need
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
             What&apos;s{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               Included
             </span>
           </h2>

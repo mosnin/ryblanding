@@ -12,7 +12,6 @@ const cards = [
     description:
       "Targeted workouts designed to build shape, strength, and confidence. Every session is intentional, every rep has a purpose.",
     color: "#22B8F0",
-    gradient: "from-[#22B8F0]/10 to-[#22B8F0]/5",
     accent: "rgba(34,184,240,0.6)",
   },
   {
@@ -21,7 +20,6 @@ const cards = [
     description:
       "Efficient sessions that fit into your life without wasting hours in the gym. 20–40 minutes is all you need to see real results.",
     color: "#FF0A7A",
-    gradient: "from-[#FF0A7A]/10 to-[#FF0A7A]/5",
     accent: "rgba(255,10,122,0.6)",
   },
   {
@@ -30,7 +28,6 @@ const cards = [
     description:
       "Supportive training that meets you where your body is today. Safe, effective, and designed to help you come back stronger.",
     color: "#22B8F0",
-    gradient: "from-[#22B8F0]/10 to-[#FF0A7A]/5",
     accent: "rgba(34,184,240,0.6)",
   },
 ];
@@ -53,28 +50,21 @@ export function ProblemSolution() {
           <span
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{
-              background: "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
-              color: "#FF0A7A",
-              border: "1px solid rgba(255,10,122,0.2)",
+              background: "rgba(37,174,235,0.08)",
+              color: "#25AEEB",
+              border: "1px solid rgba(37,174,235,0.2)",
             }}
           >
             <span
               className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-              style={{ background: "#FF0A7A" }}
+              style={{ background: "#25AEEB" }}
             />
             Why RYB Works
           </span>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#123244] leading-tight">
             Built for real women{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               with real schedules.
             </span>
           </h2>
@@ -103,13 +93,8 @@ export function ProblemSolution() {
                   <div
                     className="absolute top-0 left-0 right-0 h-[3px] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
-                      background: `linear-gradient(90deg, ${card.color}, ${card.color}80)`,
+                      background: card.color,
                     }}
-                  />
-
-                  {/* Gradient bg on hover */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl`}
                   />
 
                   <div className="relative z-10">

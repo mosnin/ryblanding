@@ -170,14 +170,7 @@ function Hero() {
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-7">
               Personal coaching for women who want{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 deeper support.
               </span>
             </h1>
@@ -233,15 +226,14 @@ function Hero() {
             {/* Glow ring */}
             <div
               className="absolute -inset-4 rounded-t-3xl opacity-30 blur-2xl pointer-events-none"
-              style={{ background: "linear-gradient(135deg,#22B8F0,#FF0A7A)" }}
+              style={{ background: "#25AEEB" }}
             />
             <div
               role="img"
               aria-label="Coach image placeholder"
               className="relative rounded-t-3xl overflow-hidden h-[520px] lg:h-[600px] flex flex-col items-center justify-center"
               style={{
-                background:
-                  "linear-gradient(160deg,rgba(34,184,240,0.12) 0%,rgba(255,10,122,0.08) 100%)",
+                background: "rgba(37,174,235,0.08)",
                 border: "1px solid rgba(255,255,255,0.12)",
               }}
             >
@@ -266,7 +258,7 @@ function Hero() {
               <div className="text-center px-8">
                 <div
                   className="w-24 h-24 rounded-full mx-auto mb-4 opacity-20"
-                  style={{ background: "linear-gradient(135deg,#22B8F0,#FF0A7A)" }}
+                  style={{ background: "#25AEEB" }}
                 />
                 <p className="text-white/30 text-sm font-medium tracking-wide uppercase">
                   Coach image placeholder
@@ -300,8 +292,7 @@ function WhoItsFor() {
             <span
               className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-5"
               style={{
-                background:
-                  "linear-gradient(135deg,rgba(34,184,240,0.1),rgba(255,10,122,0.1))",
+                background: "rgba(37,174,235,0.08)",
                 color: "#FF0A7A",
                 border: "1px solid rgba(255,10,122,0.2)",
               }}
@@ -310,14 +301,7 @@ function WhoItsFor() {
             </span>
             <h2 className="text-4xl sm:text-5xl font-black text-[#123244] leading-tight mb-6">
               This coaching is{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 built for you
               </span>{" "}
               if you&apos;re...
@@ -399,7 +383,7 @@ function WhatsIncluded() {
       ref={ref}
       className="py-24 px-4 sm:px-6 lg:px-8"
       style={{
-        background: "linear-gradient(135deg,#123244 0%,#1a4462 100%)",
+        background: "#102B3A",
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -415,14 +399,7 @@ function WhatsIncluded() {
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
             What&apos;s{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               included
             </span>
           </h2>
@@ -522,8 +499,7 @@ function CoachingProcess() {
           <span
             className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-5"
             style={{
-              background:
-                "linear-gradient(135deg,rgba(34,184,240,0.1),rgba(255,10,122,0.1))",
+              background: "rgba(37,174,235,0.08)",
               color: "#22B8F0",
               border: "1px solid rgba(34,184,240,0.3)",
             }}
@@ -532,14 +508,7 @@ function CoachingProcess() {
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-4">
             The coaching{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               process
             </span>
           </h2>
@@ -551,7 +520,7 @@ function CoachingProcess() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#22B8F0]/40 via-[#FF0A7A]/30 to-transparent hidden sm:block" />
+          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-white/10 hidden sm:block" />
 
           <div className="space-y-8">
             {process.map((item, i) => {
@@ -588,15 +557,7 @@ function CoachingProcess() {
                       >
                         <span
                           className="text-3xl font-black"
-                          style={{
-                            background:
-                              i % 2 === 0
-                                ? "linear-gradient(135deg,#22B8F0,#FF0A7A)"
-                                : "linear-gradient(135deg,#FF0A7A,#22B8F0)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                          }}
+                          style={{ color: "#25AEEB" }}
                         >
                           {item.number}
                         </span>
@@ -630,7 +591,7 @@ function CoachingProcess() {
                   {/* Circle node on timeline */}
                   <div className="hidden sm:flex absolute left-8 lg:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full items-center justify-center z-10 shadow-lg"
                     style={{
-                      background: "linear-gradient(135deg,#22B8F0,#FF0A7A)",
+                      background: "#25AEEB",
                     }}
                   >
                     <span className="text-white text-xs font-black">{i + 1}</span>
@@ -680,14 +641,7 @@ function ApplicationCTA() {
 
             <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
               Ready for{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 personal support?
               </span>
             </h2>
@@ -721,7 +675,7 @@ function ApplicationCTA() {
           >
             <div
               className="absolute -inset-3 rounded-3xl opacity-20 blur-2xl pointer-events-none"
-              style={{ background: "linear-gradient(135deg,#22B8F0,#FF0A7A)" }}
+              style={{ background: "#25AEEB" }}
             />
             <ImagePlaceholder
               label="Coaching application image placeholder"
@@ -744,7 +698,7 @@ function ApplicationCTA() {
 
             <div
               className="absolute -top-4 -right-4 px-4 py-2 rounded-xl shadow-lg"
-              style={{ background: "linear-gradient(90deg,#22B8F0,#FF0A7A)" }}
+              style={{ background: "#25AEEB" }}
             >
               <p className="text-white font-bold text-xs">Personalized ✦</p>
             </div>

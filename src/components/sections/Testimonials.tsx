@@ -50,7 +50,7 @@ function TestimonialCard({
       {/* Quote icon with gradient bg */}
       <div
         className="w-10 h-10 rounded-xl flex items-center justify-center mb-6"
-        style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+        style={{ background: "#25AEEB" }}
       >
         <Quote size={18} className="text-white" />
       </div>
@@ -72,7 +72,7 @@ function TestimonialCard({
         {/* Avatar with gradient + initial */}
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white text-sm font-bold"
-          style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+          style={{ background: "#25AEEB" }}
         >
           {getInitial(name)}
         </div>
@@ -101,23 +101,16 @@ export function Testimonials() {
           <span
             className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
             style={{
-              background: "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
-              color: "#22B8F0",
-              border: "1px solid rgba(34,184,240,0.3)"
+              background: "rgba(37,174,235,0.08)",
+              color: "#25AEEB",
+              border: "1px solid rgba(37,174,235,0.2)"
             }}
           >
             What Members Say
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-[#123244]">
             Real{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               Results
             </span>
           </h2>

@@ -134,14 +134,7 @@ export function FAQsPage() {
             </span>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">
               Frequently Asked{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 Questions
               </span>
             </h1>
@@ -173,7 +166,7 @@ export function FAQsPage() {
                 className="text-2xl font-bold mb-6 pb-3 border-b-2"
                 style={{
                   color: "#123244",
-                  borderImage: "linear-gradient(90deg, #22B8F0, #FF0A7A) 1",
+                  borderColor: "#25AEEB",
                 }}
               >
                 {cat.category}

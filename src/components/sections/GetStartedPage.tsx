@@ -134,7 +134,7 @@ function PlanCard({
       {popular && (
         <div
           className="absolute top-0 left-0 right-0 h-1"
-          style={{ background: "linear-gradient(90deg, #22B8F0, #FF0A7A)" }}
+          style={{ background: "#25AEEB" }}
         />
       )}
 
@@ -148,7 +148,7 @@ function PlanCard({
             className="px-3 py-1 rounded-full text-xs font-bold"
             style={
               badgeStyle === "primary"
-                ? { background: "linear-gradient(90deg,#22B8F0,#FF0A7A)", color: "#fff" }
+                ? { background: "#25AEEB", color: "#fff" }
                 : {
                     background: "rgba(34,184,240,0.12)",
                     color: "#22B8F0",
@@ -274,14 +274,7 @@ export function GetStartedPage() {
             className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6"
           >
             Choose the plan that{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{ color: "#25AEEB" }}>
               fits your goals.
             </span>
           </motion.h1>
@@ -337,14 +330,7 @@ export function GetStartedPage() {
           >
             <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-3">
               Simple,{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 transparent pricing
               </span>
             </h2>
@@ -406,8 +392,7 @@ export function GetStartedPage() {
             <span
               className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
               style={{
-                background:
-                  "linear-gradient(135deg,rgba(34,184,240,0.1),rgba(255,10,122,0.1))",
+                background: "rgba(37,174,235,0.08)",
                 color: "#FF0A7A",
                 border: "1px solid rgba(255,10,122,0.2)",
               }}
@@ -416,14 +401,7 @@ export function GetStartedPage() {
             </span>
             <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-3">
               What&apos;s{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 included
               </span>
             </h2>
@@ -443,7 +421,7 @@ export function GetStartedPage() {
             <div
               className="px-8 py-5 flex items-center gap-3"
               style={{
-                background: "linear-gradient(135deg,#123244 0%,#1a4462 100%)",
+                background: "#102B3A",
               }}
             >
               <div className="w-2 h-2 rounded-full bg-[#22B8F0]" />
@@ -528,7 +506,7 @@ export function GetStartedPage() {
         ref={stepsRef}
         className="py-24 px-4 sm:px-6 lg:px-8"
         style={{
-          background: "linear-gradient(135deg,#EAF8FF 0%,#fff0f7 100%)",
+          background: "#F5F7FA",
         }}
       >
         <div className="max-w-5xl mx-auto">
@@ -541,8 +519,7 @@ export function GetStartedPage() {
             <span
               className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4"
               style={{
-                background:
-                  "linear-gradient(135deg,rgba(34,184,240,0.1),rgba(255,10,122,0.1))",
+                background: "rgba(37,174,235,0.08)",
                 color: "#22B8F0",
                 border: "1px solid rgba(34,184,240,0.3)",
               }}
@@ -551,14 +528,7 @@ export function GetStartedPage() {
             </span>
             <h2 className="text-4xl sm:text-5xl font-black text-[#123244] mb-3">
               How it{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg,#22B8F0 0%,#FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 works
               </span>
             </h2>
@@ -579,7 +549,7 @@ export function GetStartedPage() {
               >
                 {/* Connector line (desktop) */}
                 {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[calc(100%-8px)] w-full h-px bg-gradient-to-r from-[#22B8F0]/40 to-transparent z-0" />
+                  <div className="hidden lg:block absolute top-8 left-[calc(100%-8px)] w-full h-px bg-[#25AEEB]/20 z-0" />
                 )}
 
                 <div className="relative z-10 bg-white rounded-2xl p-6 shadow-sm border border-white hover:shadow-lg transition-all duration-300 h-full">

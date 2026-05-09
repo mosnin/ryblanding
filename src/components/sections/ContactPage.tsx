@@ -52,14 +52,7 @@ export function ContactPage() {
             </span>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">
               Get in{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 Touch
               </span>
             </h1>

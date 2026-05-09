@@ -137,22 +137,19 @@ img {
 /* ── Gradient utilities ───────────────────────────────────────────────── */
 
 .gradient-text {
-  background: linear-gradient(135deg, #25AEEB 0%, #F72585 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #25AEEB;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #25AEEB 0%, #F72585 100%);
+  background: #25AEEB;
 }
 
 .gradient-bg-soft {
-  background: linear-gradient(135deg, #EEF8FC 0%, #fff0f7 100%);
+  background: #EEF8FC;
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #25AEEB 0%, #F72585 100%);
+  background: #25AEEB;
   color: #fff;
   transition: filter 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }
@@ -164,7 +161,7 @@ img {
 .btn-primary:active { transform: translateY(0); }
 
 .shimmer-btn {
-  background: linear-gradient(90deg, #25AEEB 0%, #F72585 100%);
+  background: #25AEEB;
   color: #fff;
   transition: filter 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }

@@ -26,7 +26,7 @@ export function TestimonialCard({
       {/* Quote icon */}
       <div
         className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-        style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+        style={{ background: "#25AEEB" }}
       >
         <Quote size={18} className="text-white" />
       </div>
@@ -47,7 +47,7 @@ export function TestimonialCard({
       <div className="flex items-center gap-3">
         <div
           className="w-10 h-10 rounded-full"
-          style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)", opacity: 0.4 }}
+          style={{ background: "#25AEEB", opacity: 0.4 }}
         />
         <div>
           <p className="font-semibold text-[#123244] text-sm">{name}</p>

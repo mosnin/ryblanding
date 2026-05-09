@@ -96,7 +96,7 @@ export function Navbar() {
                     {/* Underline slide indicator */}
                     <span
                       className={cn(
-                        "absolute bottom-0.5 left-4 right-4 h-[2px] rounded-full bg-gradient-to-r from-[#22B8F0] to-[#FF0A7A] origin-left transition-transform duration-200",
+                        "absolute bottom-0.5 left-4 right-4 h-[2px] rounded-full bg-[#25AEEB] origin-left transition-transform duration-200",
                         isActive
                           ? "scale-x-100"
                           : "scale-x-0 group-hover:scale-x-100"

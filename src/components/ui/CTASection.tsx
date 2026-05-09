@@ -48,7 +48,7 @@ export function CTASection({
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
             {headline}{" "}
             {highlightText && (
-              <span className="gradient-text">{highlightText}</span>
+              <span className="text-[#25AEEB]">{highlightText}</span>
             )}
           </h2>
 

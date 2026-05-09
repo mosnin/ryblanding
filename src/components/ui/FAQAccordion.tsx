@@ -58,7 +58,7 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
                 )}
                 style={{
                   background: isOpen
-                    ? "linear-gradient(135deg,#22B8F0,#FF0A7A)"
+                    ? "#25AEEB"
                     : "rgba(34,184,240,0.1)",
                 }}
               >
@@ -80,7 +80,7 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
                   style={{ overflow: "hidden" }}
                 >
                   <div className="px-6 pb-6">
-                    <div className="h-px bg-gradient-to-r from-[#22B8F0]/20 to-[#FF0A7A]/20 mb-4" />
+                    <div className="h-px bg-[#25AEEB]/15 mb-4" />
                     <p className="text-gray-500 leading-relaxed text-[15px]">{item.answer}</p>
                   </div>
                 </motion.div>

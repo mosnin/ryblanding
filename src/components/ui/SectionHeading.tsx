@@ -27,9 +27,9 @@ export function SectionHeading({
           style={{
             background: dark
               ? "rgba(255,255,255,0.1)"
-              : "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
-            color: dark ? "rgba(255,255,255,0.8)" : "#FF0A7A",
-            border: dark ? "1px solid rgba(255,255,255,0.2)" : "1px solid rgba(255,10,122,0.2)",
+              : "rgba(37,174,235,0.08)",
+            color: dark ? "rgba(255,255,255,0.8)" : "#25AEEB",
+            border: dark ? "1px solid rgba(255,255,255,0.2)" : "1px solid rgba(37,174,235,0.2)",
           }}
         >
           {badge}
@@ -45,10 +45,7 @@ export function SectionHeading({
         {highlight && (
           <span
             style={{
-              background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "#25AEEB",
             }}
           >
             {highlight}

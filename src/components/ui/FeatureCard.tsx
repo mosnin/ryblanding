@@ -67,7 +67,7 @@ export function FeatureCard({
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"
-        style={{ background: `linear-gradient(135deg, ${color}08 0%, ${color}04 100%)` }}
+        style={{ background: `${color}10` }}
       />
       <div className="relative z-10">
         <div

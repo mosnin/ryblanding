@@ -25,13 +25,13 @@ export function BorderBeamCard({ children, className, delay = 0 }: BorderBeamCar
         className
       )}
       style={{
-        background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 50%, #22B8F0 100%)",
+        background: "#25AEEB",
       }}
     >
       <div className="rounded-2xl bg-white h-full w-full relative overflow-hidden">
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: "linear-gradient(135deg, rgba(34,184,240,0.05) 0%, rgba(255,10,122,0.05) 100%)"
+            background: "rgba(37,174,235,0.05)"
           }}
         />
         {children}

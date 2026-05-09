@@ -32,7 +32,7 @@ export function Footer() {
       <div
         className="h-px w-full"
         style={{
-          background: "linear-gradient(90deg, #22B8F0 0%, #FF0A7A 100%)",
+          background: "#25AEEB",
         }}
       />
 
@@ -53,7 +53,7 @@ export function Footer() {
               <span className="font-bold text-xl tracking-tight">Raise Your Bar</span>
             </div>
 
-            <p className="gradient-text font-semibold text-sm mb-3">
+            <p className="text-[#25AEEB] font-semibold text-sm mb-3">
               Elevate every rep. Own every result.
             </p>
 

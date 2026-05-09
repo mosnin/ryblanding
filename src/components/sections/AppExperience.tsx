@@ -61,9 +61,9 @@ export function AppExperience() {
             <span
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
               style={{
-                background: "linear-gradient(135deg, rgba(34,184,240,0.1), rgba(255,10,122,0.1))",
+                background: "rgba(37,174,235,0.08)",
                 color: "#FF0A7A",
-                border: "1px solid rgba(255,10,122,0.2)"
+                border: "1px solid rgba(37,174,235,0.2)"
               }}
             >
               <Smartphone size={14} />
@@ -73,12 +73,7 @@ export function AppExperience() {
             <h2 className="text-4xl sm:text-5xl font-black text-[#123244] leading-tight mb-6">
               Everything in one{" "}
               <span
-                style={{
-                  background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
+                style={{ color: "#25AEEB" }}
               >
                 simple coaching hub.
               </span>
@@ -100,7 +95,7 @@ export function AppExperience() {
                   <div className="flex items-center gap-3">
                     <div
                       className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold"
-                      style={{ background: "linear-gradient(135deg, #22B8F0, #FF0A7A)" }}
+                      style={{ background: "#25AEEB" }}
                     >
                       ✓
                     </div>
@@ -136,7 +131,7 @@ export function AppExperience() {
                       : "w-36 h-72 sm:w-44 sm:h-80"
                   }`}
                   style={{
-                    background: "linear-gradient(160deg, rgba(18,50,68,0.92) 0%, rgba(18,50,68,0.98) 100%)",
+                    background: "#102B3A",
                     border: `2px solid ${screen.accentColor}40`,
                   }}
                 >
@@ -188,7 +183,7 @@ export function AppExperience() {
                           className="h-full rounded-full"
                           style={{
                             width: `${screen.progress}%`,
-                            background: `linear-gradient(90deg, ${screen.accentColor}, #FF0A7A)`,
+                            background: screen.accentColor,
                           }}
                         />
                       </div>
@@ -199,7 +194,7 @@ export function AppExperience() {
                 {/* Label pill with gradient */}
                 <div
                   className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-white text-xs font-bold shadow-md whitespace-nowrap"
-                  style={{ background: "linear-gradient(90deg, #22B8F0, #FF0A7A)" }}
+                  style={{ background: "#25AEEB" }}
                 >
                   {screen.label}
                 </div>

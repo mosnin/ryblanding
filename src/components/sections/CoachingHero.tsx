@@ -27,14 +27,7 @@ export function CoachingHero() {
             </span>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
               Your Coach.{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #22B8F0 0%, #FF0A7A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "#25AEEB" }}>
                 Your Plan.
               </span>{" "}
               Your Results.
